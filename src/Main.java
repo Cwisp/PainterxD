@@ -12,6 +12,7 @@ public class Main {
 	
 	public static Window window;
 	public static Map map;
+	public static Player p;
 		
 	public static void main(String[] args) {
 		window = new Window(width, height);
@@ -19,7 +20,7 @@ public class Main {
 		map = new Map();
 		window.setMap(map);
 		
-		Player p = new Player();
+		p = new Player();
 		window.setPlayer(p);
 		
 		window.setEnemies(enemies);
@@ -35,7 +36,6 @@ public class Main {
 		while (inGame) {
 			if (System.currentTimeMillis() - spawntimer >= 500) {
 				spawntimer = System.currentTimeMillis();
-				System.out.println("spawn!");
 				enemies.add(new Enemy("assets/yellowpaint.png"));
 			}
 			if (System.currentTimeMillis() - time >= 5) {
@@ -47,14 +47,11 @@ public class Main {
 						enemies.remove(i);
 					}
 				}
-				//update enemies
-				//window does player movement listener
-				//spawn enemies
+				if (p.checkCollisions(enemies))
+					inGame = false;
 				//check for collisions
 				window.draw();
 			}
 		}
-		window.setVisible(false);
-		window.dispose();
 	}
 }

@@ -10,7 +10,7 @@ public class Enemy {
 		img = new Img(filename, 0, 0);
 		posX = (int) (Math.random() * 400);
 		posY = 0;
-		moveSpeed = 3;
+		moveSpeed = 2;
 	}
 	
 	public void update() {
