@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-	public static ArrayList<Enemy> enemies;
+	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	
 	public static boolean inGame = false;
 	
@@ -22,6 +22,8 @@ public class Main {
 		Player p = new Player();
 		window.setPlayer(p);
 		
+		window.setEnemies(enemies);
+		
 		inGame = true;
 		gameLoop();
 	}
@@ -31,13 +33,20 @@ public class Main {
 		long time = System.currentTimeMillis();
 		long spawntimer = System.currentTimeMillis();
 		while (inGame) {
-			if (System.currentTimeMillis() - spawntimer >= 300) {
+			if (System.currentTimeMillis() - spawntimer >= 500) {
 				spawntimer = System.currentTimeMillis();
 				System.out.println("spawn!");
-				//spawn
+				enemies.add(new Enemy("assets/yellowpaint.png"));
 			}
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
+				map.update();
+				for (int i = enemies.size()-1; i >= 0; i--) {
+					enemies.get(i).update();
+					if (enemies.get(i).getY() >= 600) {
+						enemies.remove(i);
+					}
+				}
 				//update enemies
 				//window does player movement listener
 				//spawn enemies

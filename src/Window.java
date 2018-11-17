@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -12,6 +13,7 @@ public class Window extends JFrame {
 	private BufferStrategy strategy;
 	private Player p;
 	private Map map;
+	public static ArrayList<Enemy> enemies;
 	
 	private int width;
 	private int height;
@@ -50,11 +52,18 @@ public class Window extends JFrame {
 		this.p = p;
 	}
 	
+	public void setEnemies(ArrayList<Enemy> enemies) {
+		this.enemies = enemies;
+	}
+	
 	public void draw() {
 		Graphics g = strategy.getDrawGraphics();
 		
-		map.update(g);
+		map.draw(g);
 		g.drawImage(p.getImg().getImg(), p.getX(), p.getY(), null);
+		for (Enemy enemy : enemies) {
+			enemy.draw(g);
+		}
 		
 		g.dispose();
 		strategy.show();

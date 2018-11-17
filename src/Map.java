@@ -19,20 +19,22 @@ public class Map {
 		imgs.add(new Img("assets/red200x400.png", 0, 400));
 	}
 	
-	public void update(Graphics g) {
-		g.clearRect(0, 0, 400, 600);
+	public void update() {
 		for (int i = imgs.size()-1; i >= 0; i--) {
 			imgs.get(i).setY(imgs.get(i).getY()+scrollSpeed);
 			if (imgs.get(i).getY() > height) {
 				imgs.remove(i);
-			} else {
-				g.drawImage(imgs.get(i).getImg(), imgs.get(i).getX(), imgs.get(i).getY(), null);
 			}	
 		}
 		if (imgs.size() < 4) {
 			add();
 		}
-		//g.drawImage(p.getImg().getImg(), p.getX(), p.getY(), null);
+	}
+	
+	public void draw(Graphics g) {
+		for (int i = 0; i < imgs.size(); i++) {
+			g.drawImage(imgs.get(i).getImg(), imgs.get(i).getX(), imgs.get(i).getY(), null);
+		}
 	}
 	
 	public void add() {
