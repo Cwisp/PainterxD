@@ -2,9 +2,10 @@
 public class Enemy {
 
 	private int posX, posY, width, height;
+	private Img img;
 	
-	public Enemy() {
-		
+	public Enemy(String filename) {
+		img = new Img(filename, 0, 0);
 	}
 	
 	public int getX() {

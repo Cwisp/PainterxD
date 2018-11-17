@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Main {
-	//hi albert
+
 	public static ArrayList<Enemy> enemies;
 	
 	public static boolean inGame = false;
@@ -29,16 +29,23 @@ public class Main {
 
 	public static void gameLoop() {
 		long time = System.currentTimeMillis();
+		long spawntimer = System.currentTimeMillis();
 		while (inGame) {
+			if (System.currentTimeMillis() - spawntimer >= 300) {
+				spawntimer = System.currentTimeMillis();
+				System.out.println("spawn!");
+				//spawn
+			}
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
+				//update enemies
+				//window does player movement listener
+				//spawn enemies
+				//check for collisions
 				window.draw();
-				//update map: map will scroll down
-				//update enemies: projectiles will also scroll down 
-				//update player location to location in player class
-				//at set time intervals, will spawn another enemy
-				//check collisions
 			}
 		}
+		window.setVisible(false);
+		window.dispose();
 	}
 }
