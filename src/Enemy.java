@@ -1,7 +1,7 @@
 
 public class Enemy {
 
-	private int posX, posY;
+	private int posX, posY, width, height;
 	
 	public Enemy() {
 		
@@ -13,6 +13,14 @@ public class Enemy {
 	
 	public int getY() {
 		return posY;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
 	}
 	
 }
