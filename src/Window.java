@@ -80,12 +80,12 @@ public class Window extends JFrame {
 				break;
 			case KeyEvent.VK_LEFT:
 				if (p.getX() >= 10) {
-					p.setX(p.getX() - 10);
+					p.setX(p.getX() - 30);
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (p.getX()+p.getImg().getImg().getWidth() <= (width - 10)) {
-					p.setX(p.getX() + 10);
+					p.setX(p.getX() + 30);
 				}
 				break;
 			}
