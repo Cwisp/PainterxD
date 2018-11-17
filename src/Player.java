@@ -38,15 +38,12 @@ public class Player {
 		
 	}
 	
-	public boolean checkCollisions(ArrayList<Enemy> enemies) {
+	public int checkCollisions(ArrayList<Enemy> enemies) {
 		for (int i = 0; i < enemies.size(); i++) {
 			if (enemies.get(i).getY() > posY + enemies.get(i).getHeight() && ((enemies.get(i).getX() > posX && enemies.get(i).getX() < posX + width) || (enemies.get(i).getX() > posX - enemies.get(i).getWidth() && enemies.get(i).getX() < posX)))
-				return true;	
+				return i;	
 		}
 
-		return false;
+		return -1;
 	}
-	
-	//key listener
-	//updates position
 }

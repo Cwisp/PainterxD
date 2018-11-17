@@ -1,4 +1,6 @@
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -13,7 +15,7 @@ public class Window extends JFrame {
 	private BufferStrategy strategy;
 	private Player p;
 	private Map map;
-	public static ArrayList<Enemy> enemies;
+	private ArrayList<Enemy> enemies;
 	
 	private int width;
 	private int height;
@@ -58,12 +60,14 @@ public class Window extends JFrame {
 	
 	public void draw() {
 		Graphics g = strategy.getDrawGraphics();
+		g.clearRect(0, 0, width, height);
 		
-		map.draw(g);
+		//map.draw(g);
 		g.drawImage(p.getImg().getImg(), p.getX(), p.getY(), null);
 		for (Enemy enemy : enemies) {
 			enemy.draw(g);
 		}
+		
 		
 		g.dispose();
 		strategy.show();
