@@ -18,10 +18,6 @@ public class Player {
 	}
 	
 	public boolean checkCollisions(ArrayList<Enemy> enemies) {
-		for (int i = 0; i < enemies.size(); i++) {
-			enemies[i].getX();
-		}
-		//if any are inside, player dies, game ends
 		return false;
 	}
 	
