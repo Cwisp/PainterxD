@@ -3,9 +3,14 @@ import java.util.ArrayList;
 public class Player {
 
 	private int posX, posY, width, height;
+	private Img img;
 	
 	public Player() {
-		
+		img = new Img("assets/bear.png", 0, 0);
+		posX = 200-img.getImg().getWidth()/2;
+		img.setX(posX);
+		posY = 600-img.getImg().getHeight();
+		img.setY(posY);
 	}
 	
 	public int getX() {
@@ -14,6 +19,14 @@ public class Player {
 	
 	public int getY() {
 		return posY;
+	}
+	
+	public Img getImg() {
+		return img;
+	}
+	
+	public void update() {
+		
 	}
 	
 	public boolean checkCollisions(ArrayList<Enemy> enemies) {
