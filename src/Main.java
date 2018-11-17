@@ -20,8 +20,8 @@ public class Main {
 		map = new Map();
 		window.add(map);
 		
-		ppanel = new PlayerPanel();
-		window.add(ppanel);
+		//ppanel = new PlayerPanel();
+		//window.add(ppanel);
 		//Player player = new Player();
 		
 		inGame = true;
@@ -34,9 +34,10 @@ public class Main {
 		while (inGame) {
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
+				map.requestFocusInWindow();
 				map.update();
-				ppanel.requestFocusInWindow();
-				ppanel.draw();
+				//ppanel.requestFocusInWindow();
+				//ppanel.draw();
 				//update map: map will scroll down
 				//update enemies: projectiles will also scroll down 
 				//update player location to location in player class
