@@ -8,7 +8,7 @@ public class Enemy {
 	}
 	
 	public int getX() {
-		return posX;
+		return posX; 
 	}
 	
 	public int getY() {
