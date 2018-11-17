@@ -24,18 +24,25 @@ public class Main {
 		window.setPlayer(p);
 
 		window.setEnemies(enemies);
-
-		inGame = true;
-		gameLoop();
+		
+		while (true) {
+			inGame = true;
+			gameLoop();
+			if (false)
+				break;
+		}
 	}
 
 	public static void gameLoop() {
 		long time = System.currentTimeMillis();
 		long spawntimer = System.currentTimeMillis();
+		int score = 0;
 		while (inGame) {
 			if (System.currentTimeMillis() - spawntimer >= 500) {
 				spawntimer = System.currentTimeMillis();
 				enemies.add(new Enemy("assets/yellowpaint.png"));
+				score++;
+				System.out.println(score);
 			}
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
