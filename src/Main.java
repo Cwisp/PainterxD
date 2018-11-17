@@ -29,7 +29,7 @@ public class Main {
 		window.add(panel);
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(new File("src/trojanbox2.png"));
+			myPicture = ImageIO.read(new File("assets/trojanbox2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,7 +49,17 @@ public class Main {
 //			}	
 //		}
 		
+		//Img img = new Img("assets/red200x400.png", 0, 0);
+		
 		map = new Map();
+		window.add(map);
+		long time = 0;
+		while (true) {
+			if (System.currentTimeMillis() - time >= 5) {
+				time = System.currentTimeMillis();
+				map.update();
+			}
+		}
 //		inGame = true;
 //		gameLoop();
 	}
