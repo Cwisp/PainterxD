@@ -16,17 +16,18 @@ public class PlayerPanel extends JPanel {
 		setBounds(0, 0, width, height);
 		setOpaque(false);
 		addKeyListener(new PlayerKeyListener());
+		setFocusable(true);
 		p = new Player();
 	}
 
 	public void draw() {
 		Graphics g = this.getGraphics();
+		//g.clearRect(0, 0, width, height);
 		g.drawImage(p.getImg().getImg(), p.getX(), p.getY(), null);
 	}
 
 	private class PlayerKeyListener implements KeyListener {
 
-		@Override
 		public void keyPressed(KeyEvent arg0) {
 			int keyCode = arg0.getKeyCode();
 			switch (keyCode) {
@@ -50,12 +51,10 @@ public class PlayerPanel extends JPanel {
 			}
 		}
 
-		@Override
 		public void keyReleased(KeyEvent arg0) {
 
 		}
 
-		@Override
 		public void keyTyped(KeyEvent arg0) {
 
 		}

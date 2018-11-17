@@ -1,9 +1,13 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
 public class Window extends JFrame {
+	
+	private BufferStrategy strategy;
+	
 	public Window(int x, int y) {
 		setLayout(null);
 		setSize(x, y);
@@ -19,6 +23,7 @@ public class Window extends JFrame {
 		int yPos = (screenDim.height / 2) - (this.getHeight() / 2);
 		
 		setLocation(xPos, yPos);
+		setIgnoreRepaint(true);
 		setVisible(true);
 	}
 }
