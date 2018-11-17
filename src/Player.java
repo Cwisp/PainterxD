@@ -9,7 +9,7 @@ public class Player {
 		img = new Img("assets/bear.png", 0, 0);
 		posX = 200-img.getImg().getWidth()/2;
 		img.setX(posX);
-		posY = 600-img.getImg().getHeight();
+		posY = 590-img.getImg().getHeight();
 		img.setY(posY);
 		width = img.getImg().getWidth();
 	}
