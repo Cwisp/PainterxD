@@ -16,6 +16,7 @@ public class Map extends JPanel {
 		height = 600;
 		setLayout(null);
 		setBounds(0, 0, width, height);
+		setOpaque(false);
 		imgs.add(new Img("assets/red200x400.png", 0, -200));
 		imgs.add(new Img("assets/blue200x400.png", 0, 0));
 		imgs.add(new Img("assets/green200x400.png", 0, 200));
