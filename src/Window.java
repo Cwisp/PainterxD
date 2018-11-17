@@ -23,7 +23,7 @@ public class Window extends JFrame {
 		setSize(width, height);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setTitle("Dots and Boxes");
+		setTitle("Paint the Bruin Bear xD");
 		
 		Toolkit tk = Toolkit.getDefaultToolkit();
 
@@ -46,10 +46,16 @@ public class Window extends JFrame {
 		this.map = map;
 	}
 	
+	public void setPlayer(Player p) {
+		this.p = p;
+	}
+	
 	public void draw() {
 		Graphics g = strategy.getDrawGraphics();
+		
 		map.update(g);
-		//draw stuff
+		g.drawImage(p.getImg().getImg(), p.getX(), p.getY(), null);
+		
 		g.dispose();
 		strategy.show();
 	}
