@@ -1,11 +1,18 @@
 
 public class Enemy {
 
-	//position variables
+	private int posX, posY;
 	
 	public Enemy() {
 		
 	}
 	
-	//getters for position variables.
+	public int getX() {
+		return posX;
+	}
+	
+	public int getY() {
+		return posY;
+	}
+	
 }

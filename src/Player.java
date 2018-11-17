@@ -18,7 +18,9 @@ public class Player {
 	}
 	
 	public boolean checkCollisions(ArrayList<Enemy> enemies) {
-		//check all enemy coordinates and see if inside player hitbox
+		for (int i = 0; i < enemies.size(); i++) {
+			enemies[i].getX();
+		}
 		//if any are inside, player dies, game ends
 		return false;
 	}
