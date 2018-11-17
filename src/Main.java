@@ -1,4 +1,7 @@
+import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.JPanel;
 
 public class Main {
 
@@ -13,20 +16,32 @@ public class Main {
 	public static Window window;
 	public static Map map;
 	public static Player p;
+	
+	public static JPanel livespanel;
+	public static int lives = 3;
+	public static int highScore = 0;
+	public static int score = 0;
 
 	public static void main(String[] args) {
 		window = new Window(width, height);
-
-		map = new Map();
-		window.setMap(map);
-
-		p = new Player();
-		window.setPlayer(p);
-
-		window.setEnemies(enemies);
-
+		livespanel = new JPanel();
+		livespanel.setLayout(null);
+		livespanel.setBounds(0,0,width,200);
+		window.add(livespanel);
 		inGame = true;
-		gameLoop();
+		while (true) {
+			map = new Map();
+			window.setMap(map);
+
+			p = new Player();
+			window.setPlayer(p);
+
+			window.setEnemies(enemies);
+			
+			if (inGame) {
+				gameLoop();
+			}
+		}
 	}
 
 	public static void gameLoop() {
@@ -38,6 +53,7 @@ public class Main {
 				enemies.add(new Enemy("assets/yellowpaint.png"));
 			}
 			if (System.currentTimeMillis() - time >= 5) {
+				score++;
 				time = System.currentTimeMillis();
 				map.update();
 				for (int i = enemies.size() - 1; i >= 0; i--) {
@@ -46,10 +62,19 @@ public class Main {
 						enemies.remove(i);
 					}
 				}
-				if (p.checkCollisions(enemies))
+				int i = p.checkCollisions(enemies);
+				if (i != -1) {
+					lives--;
+					enemies.remove(i);
+				}
+				if (lives <= 0) {
 					inGame = false;
-				// check for collisions
+				}
+
 				window.draw();
+				
+				if (score > highScore)
+					highScore = score;
 			}
 		}
 	}
