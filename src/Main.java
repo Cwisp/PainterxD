@@ -4,50 +4,51 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 public class Main {
 
 	public static ArrayList<Enemy> enemies;
 	
 	public static boolean inGame = false;
-	
-	private static Graphics2D g2;
-	
+	public static final int width = 400;
+	public static final int height = 600;
+		
 	public static void main(String[] args) {
-		Window window = new Window(600,600);
+		Window window = new Window(width, height);
 		
 		JPanel panel = new JPanel();
 		
 		panel.setLayout(null);
 		panel.setBounds(0, 0, window.getWidth(), window.getHeight());
-		
+		window.add(panel);
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(new File("src/trojanbox.png"));
+			myPicture = ImageIO.read(new File("src/trojanbox2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		JLabel img = new JLabel();
-		panel.add(img);
-		g2 = (Graphics2D) img.getGraphics();
-		if(myPicture!= null) {
-			g2.drawImage(myPicture, 0, 0, null);
+		Graphics g = panel.getGraphics();
+		int x = 0;
+		int y = 0;
+		long time = 0;
+		while(true) {
+			if (System.currentTimeMillis() - time >= 100) {
+				g.clearRect(0, 0, panel.getWidth(), panel.getHeight());
+				time = System.currentTimeMillis();
+				g.drawImage(myPicture, x, y, null);
+				x+=10;
+				y+=10;
+			}	
 		}
-		
-		window.add(panel);
-		
 		
 //		inGame = true;
 //		gameLoop();
 	}
+	
 
 	public static void gameLoop() {
 		while (inGame) {
