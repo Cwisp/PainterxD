@@ -11,6 +11,7 @@ public class Main {
 	public static final int height = 600;
 	
 	public static Map map;
+	public static PlayerPanel ppanel;
 		
 	public static void main(String[] args) {
 		Window window = new Window(width, height);
@@ -18,7 +19,9 @@ public class Main {
 		map = new Map();
 		window.add(map);
 		
-		Player player = new Player();
+		ppanel = new PlayerPanel();
+		window.add(ppanel);
+		//Player player = new Player();
 		
 		inGame = true;
 		gameLoop();
@@ -31,6 +34,7 @@ public class Main {
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
 				map.update();
+				ppanel.draw();
 				//update map: map will scroll down
 				//update enemies: projectiles will also scroll down 
 				//update player location to location in player class
