@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
 
+	//hi albert
 	public static ArrayList<Enemy> enemies;
 	
 	public static boolean inGame = false;
@@ -34,6 +35,7 @@ public class Main {
 			if (System.currentTimeMillis() - time >= 5) {
 				time = System.currentTimeMillis();
 				map.update();
+				ppanel.requestFocusInWindow();
 				ppanel.draw();
 				//update map: map will scroll down
 				//update enemies: projectiles will also scroll down 
