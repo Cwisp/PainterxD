@@ -11,6 +11,7 @@ public class Player {
 		img.setX(posX);
 		posY = 600-img.getImg().getHeight();
 		img.setY(posY);
+		
 	}
 	
 	public int getX() {
@@ -19,6 +20,14 @@ public class Player {
 	
 	public int getY() {
 		return posY;
+	}
+	
+	public void setX(int x) {
+		this.posX = x;
+	}
+	
+	public void setY(int y) {
+		this.posY = y;
 	}
 	
 	public Img getImg() {
