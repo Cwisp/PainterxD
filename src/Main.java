@@ -20,10 +20,7 @@ public class Main {
 		window.setMap(map);
 		
 		Player p = new Player();
-		
-		//ppanel = new PlayerPanel();
-		//window.add(ppanel);
-		//Player player = new Player();
+		window.setPlayer(p);
 		
 		inGame = true;
 		gameLoop();
