@@ -5,12 +5,14 @@ public class Enemy {
 	private int posX, posY, width, height;
 	private Img img;
 	private int moveSpeed;
+	private boolean bad;
 	
-	public Enemy(String filename) {
+	public Enemy(String filename, boolean goodbad) {
 		img = new Img(filename, 0, 0);
-		posX = (int) (Math.random() * 400);
+		posX = (int) (Math.random() * 340 + 30);
 		posY = 0;
 		moveSpeed = 2;
+		bad = goodbad;
 	}
 	
 	public void update() {
@@ -39,5 +41,9 @@ public class Enemy {
 	
 	public int getMoveSpeed() {
 		return moveSpeed;
+	}
+	
+	public boolean getBad() {
+		return bad;
 	}
 }
