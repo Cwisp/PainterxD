@@ -11,6 +11,9 @@ public class Enemy {
 		img = new Img(filename, 0, 0);
 		posX = (int) (Math.random() * 340 + 30);
 		posY = 0;
+		width = img.getImg().getWidth();
+		height = img.getImg().getHeight();
+		//System.out.println(img.getImg().getWidth());
 		moveSpeed = 2;
 		bad = goodbad;
 	}
